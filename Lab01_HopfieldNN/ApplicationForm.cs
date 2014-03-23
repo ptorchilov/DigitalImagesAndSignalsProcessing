@@ -11,6 +11,11 @@
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Buttons the noise click.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void ButtonNoiseClick(object sender, System.EventArgs e)
         {
             this.DeletePreveousFile(NoiseGenerator.PicturePath);
@@ -37,6 +42,10 @@
             pictureBox1.ImageLocation = noisePicture;
         }
 
+        /// <summary>
+        /// Deletes the preveous file.
+        /// </summary>
+        /// <param name="path">The path.</param>
         private void DeletePreveousFile(String path)
         {
             if (path != null)
@@ -48,6 +57,11 @@
             }
         }
 
+        /// <summary>
+        /// Applications the form form closing.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
         private void ApplicationFormFormClosing(object sender, FormClosingEventArgs e)
         {
             this.DeletePreveousFile(NoiseGenerator.PicturePath);
