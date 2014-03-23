@@ -167,6 +167,7 @@
             this.buttonNoise.TabIndex = 8;
             this.buttonNoise.Text = "Generate";
             this.buttonNoise.UseVisualStyleBackColor = true;
+            this.buttonNoise.Click += new System.EventHandler(this.ButtonNoiseClick);
             // 
             // numericUpDownNoise
             // 

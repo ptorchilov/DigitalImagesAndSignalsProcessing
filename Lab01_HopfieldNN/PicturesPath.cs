@@ -35,6 +35,6 @@ namespace Lab01_HopfieldNN
         /// The path to folder with noises pictures
         /// </summary>
         public static String PathToNoiseFolder =
-            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\noise";
+            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\noise\";
     }
 }
