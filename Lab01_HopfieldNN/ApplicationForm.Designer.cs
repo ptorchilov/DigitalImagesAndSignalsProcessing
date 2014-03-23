@@ -38,25 +38,34 @@
             // 
             // pictureBoxA
             // 
+            this.pictureBoxA.ImageLocation = "D:\\work\\VS\\sem8\\cosii\\DigitalImagesAndSignalsProcessing\\Pictures Sources\\original" +
+                "\\A\\A.bmp";
             this.pictureBoxA.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxA.Name = "pictureBoxA";
             this.pictureBoxA.Size = new System.Drawing.Size(260, 260);
+            this.pictureBoxA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxA.TabIndex = 0;
             this.pictureBoxA.TabStop = false;
             // 
             // pictureBoxB
             // 
+            this.pictureBoxB.ImageLocation = "D:\\work\\VS\\sem8\\cosii\\DigitalImagesAndSignalsProcessing\\Pictures Sources\\original" +
+                "\\B\\B.bmp";
             this.pictureBoxB.Location = new System.Drawing.Point(338, 12);
             this.pictureBoxB.Name = "pictureBoxB";
             this.pictureBoxB.Size = new System.Drawing.Size(260, 260);
+            this.pictureBoxB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxB.TabIndex = 1;
             this.pictureBoxB.TabStop = false;
             // 
             // pictureBoxC
             // 
+            this.pictureBoxC.ImageLocation = "D:\\work\\VS\\sem8\\cosii\\DigitalImagesAndSignalsProcessing\\Pictures Sources\\original" +
+                "\\C\\C.bmp";
             this.pictureBoxC.Location = new System.Drawing.Point(672, 12);
             this.pictureBoxC.Name = "pictureBoxC";
             this.pictureBoxC.Size = new System.Drawing.Size(260, 260);
+            this.pictureBoxC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxC.TabIndex = 2;
             this.pictureBoxC.TabStop = false;
             // 
