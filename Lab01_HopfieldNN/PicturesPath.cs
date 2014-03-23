@@ -13,10 +13,28 @@ namespace Lab01_HopfieldNN
     /// </summary>
     public static class PicturesPath
     {
-        public static String PathToA = @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\A\A.bmp";
+        /// <summary>
+        /// The path to A picture
+        /// </summary>
+        public static String PathToOriginalA =
+            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\A\A.bmp";
 
-        public static String PathToB = @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\B\B.bmp";
+        /// <summary>
+        /// The path to B picture.
+        /// </summary>
+        public static String PathToOriginalB =
+            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\B\B.bmp";
 
-        public static String PathToC = @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\C\C.bmp";
+        /// <summary>
+        /// The path to C picture.
+        /// </summary>
+        public static String PathToOriginalC =
+            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\C\C.bmp";
+
+        /// <summary>
+        /// The path to folder with noises pictures
+        /// </summary>
+        public static String PathToNoiseFolder =
+            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\noise";
     }
 }

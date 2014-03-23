@@ -52,6 +52,7 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NoiseGenerator.cs" />
     <Compile Include="PictureContainer.cs" />
     <Compile Include="PicturesPath.cs" />
     <Compile Include="Program.cs" />
