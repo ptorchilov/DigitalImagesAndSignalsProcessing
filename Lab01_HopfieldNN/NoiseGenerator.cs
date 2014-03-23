@@ -70,7 +70,7 @@ namespace Lab01_HopfieldNN
 
                     randomValue = Random.Next(0, 100);
 
-                    if (randomValue <= noiseLevel)
+                    if (randomValue < noiseLevel)
                     {
                         picture.SetPixel(i, j, InvertPixel(pixel));
                     }

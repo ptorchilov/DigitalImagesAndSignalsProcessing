@@ -204,6 +204,7 @@
             this.buttonStatistics.TabIndex = 0;
             this.buttonStatistics.Text = "Recognize";
             this.buttonStatistics.UseVisualStyleBackColor = true;
+            this.buttonStatistics.Click += new System.EventHandler(this.ButtonStatisticsClick);
             // 
             // ApplicationForm
             // 

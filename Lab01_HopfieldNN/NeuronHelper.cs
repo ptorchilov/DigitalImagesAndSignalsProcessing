@@ -6,22 +6,21 @@
 
 namespace Lab01_HopfieldNN
 {
-    using System.Collections.Generic;
     using System.Drawing;
 
     /// <summary>
     /// Class of methors for mprk with neurons.
     /// </summary>
-    public class HeuronHelper
+    public class NeuronHelper
     {
         /// <summary>
         /// Convert picture to vector
         /// </summary>
         /// <param name="picture">The picture.</param>
         /// <returns></returns>
-        public IList<sbyte> ConvertToVector(Bitmap picture)
+        public sbyte[] ConvertToVector(Bitmap picture)
         {
-            IList<sbyte> vector = new List<sbyte>(PictureContainer.Size * PictureContainer.Size);
+            var vector = new sbyte[PictureContainer.Size * PictureContainer.Size];
 
             for (var i = 0; i < PictureContainer.Size; i++)
             {
@@ -29,7 +28,7 @@ namespace Lab01_HopfieldNN
                 {
                     var pixel = picture.GetPixel(i, j);
 
-                    if (pixel.R > 255)
+                    if (pixel.R > 250)
                     {
                         vector[i * PictureContainer.Size + j] = 1;
                     }
@@ -48,15 +47,15 @@ namespace Lab01_HopfieldNN
         /// </summary>
         /// <param name="vector">The vector.</param>
         /// <returns></returns>
-        public IList<IList<sbyte>> CreateCoefficientMatrix(IList<sbyte> vector)
+        public sbyte[,] CreateCoefficientMatrix(sbyte[] vector)
         {
-            IList<IList<sbyte>> coefficientMatrix = new List<IList<sbyte>>(vector.Count);
+            var coefficientMatrix = new sbyte[vector.Length,vector.Length];
 
-            for (var i = 0; i < vector.Count; i++)
+            for (var i = 0; i < vector.Length; i++)
             {
-                for (var j = 0; j < vector.Count; j++)
+                for (var j = 0; j < vector.Length; j++)
                 {
-                    coefficientMatrix[i][j] = (sbyte) (vector[i] * vector[j]);
+                    coefficientMatrix[i,j] = (sbyte) (vector[i] * vector[j]);
                 }
             }
 

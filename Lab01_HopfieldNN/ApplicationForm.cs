@@ -1,11 +1,22 @@
 ﻿namespace Lab01_HopfieldNN
 {
+    using System.Drawing;
     using System.IO;
     using System.Windows.Forms;
     using System;
 
+    using Lab01_HopfieldNN.Properties;
+
     public partial class ApplicationForm : Form
     {
+        /// <summary>
+        /// The original picture path
+        /// </summary>
+        private String picturePath;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApplicationForm"/> class.
+        /// </summary>
         public ApplicationForm()
         {
             InitializeComponent();
@@ -21,8 +32,6 @@
             this.DeletePreveousFile(NoiseGenerator.PicturePath);
 
             var noiseLevel = numericUpDownNoise.Value;
-
-            var picturePath = String.Empty;
 
             if (radioButton1.Checked)
             {
@@ -65,6 +74,24 @@
         private void ApplicationFormFormClosing(object sender, FormClosingEventArgs e)
         {
             this.DeletePreveousFile(NoiseGenerator.PicturePath);
+        }
+
+        private void ButtonStatisticsClick(object sender, EventArgs e)
+        {
+            if (picturePath == null)
+            {
+                MessageBox.Show(Resources.ApplicationForm_ButtonStatisticsClick_Choose_picture_);
+                return;
+            }
+
+            var picture = new Bitmap(picturePath);
+
+            var helper = new NeuronHelper();
+
+            var vector = helper.ConvertToVector(picture);
+
+            var matrix = helper.CreateCoefficientMatrix(vector);
+
         }
     }
 }
