@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Lab01_HopfieldNN
 {
-    public partial class Form1 : Form
+    public partial class ApplicationForm : Form
     {
-        public Form1()
+        public ApplicationForm()
         {
             InitializeComponent();
         }

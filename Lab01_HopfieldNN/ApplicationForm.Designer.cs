@@ -1,6 +1,6 @@
 ﻿namespace Lab01_HopfieldNN
 {
-    partial class Form1
+    partial class ApplicationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ApplicationForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(944, 682);
+            this.Name = "ApplicationForm";
+            this.Text = "ApplicationForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
