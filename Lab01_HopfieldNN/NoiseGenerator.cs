@@ -25,15 +25,17 @@ namespace Lab01_HopfieldNN
         /// </summary>
         private const int RGBMAX = 255;
 
+        private static String picturePath;
+
         /// <summary>
         /// Generates the specified path.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="noiseLevel">The noise level.</param>
         /// <returns></returns>
-        public static Bitmap Generate(String path, int noiseLevel)
+        public static String Generate(String path, int noiseLevel)
         {
-            var noisePicturePath = CreateNewPath(path);
+            var noisePicturePath = CreateNewPath();
 
             File.Copy(path, noisePicturePath);
 
@@ -48,7 +50,7 @@ namespace Lab01_HopfieldNN
         /// <param name="picture">The picture.</param>
         /// <param name="noiseLevel">The noise level.</param>
         /// <returns></returns>
-        public static Bitmap Generate(Bitmap picture, int noiseLevel)
+        private static String Generate(Bitmap picture, int noiseLevel)
         {
             int randomValue;
 
@@ -69,7 +71,7 @@ namespace Lab01_HopfieldNN
                 }
             }
 
-            return picture;
+            return picturePath;
         }
 
         /// <summary>
@@ -85,11 +87,12 @@ namespace Lab01_HopfieldNN
         /// <summary>
         /// Creates the new path.
         /// </summary>
-        /// <param name="path">The path.</param>
         /// <returns></returns>
-        private static String CreateNewPath(String path)
+        private static String CreateNewPath()
         {
-            return String.Concat(PicturesPath.PathToNoiseFolder, Guid.NewGuid().ToString(), ".bmp");
+            picturePath = String.Concat(PicturesPath.PathToNoiseFolder, Guid.NewGuid().ToString(), ".bmp");
+
+            return picturePath;
         }
     }
 }

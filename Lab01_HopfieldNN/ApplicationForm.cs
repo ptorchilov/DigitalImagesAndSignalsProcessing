@@ -12,7 +12,7 @@
 
         private void ButtonNoiseClick(object sender, System.EventArgs e)
         {
-            var noizeLevel = numericUpDownNoise.Value;
+            var noiseLevel = numericUpDownNoise.Value;
 
             var picturePath = String.Empty;
 
@@ -29,6 +29,9 @@
                 picturePath = PicturesPath.PathToOriginalC;
             }
 
+            var noisePicture = NoiseGenerator.Generate(picturePath, (int) noiseLevel);
+
+            pictureBox1.ImageLocation = noisePicture;
         }
     }
 }
