@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="PicturesContainer.cs" company="BSUIR">
+// <copyright file="PicturesPath.cs" company="BSUIR">
 // Pavel Torchilov
 // </copyright>
 // -----------------------------------------------------------------------
@@ -11,7 +11,7 @@ namespace Lab01_HopfieldNN
     /// <summary>
     /// Class for paths to pitures
     /// </summary>
-    public static class PicturesContainer
+    public static class PicturesPath
     {
         public static String PathToA = @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\A\A.bmp";
 
