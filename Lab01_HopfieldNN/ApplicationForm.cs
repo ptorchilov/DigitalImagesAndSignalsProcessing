@@ -1,5 +1,6 @@
 ﻿namespace Lab01_HopfieldNN
 {
+    using System.IO;
     using System.Windows.Forms;
     using System;
 
@@ -12,6 +13,8 @@
 
         private void ButtonNoiseClick(object sender, System.EventArgs e)
         {
+            this.DeletePreveousFile(NoiseGenerator.PicturePath);
+
             var noiseLevel = numericUpDownNoise.Value;
 
             var picturePath = String.Empty;
@@ -32,6 +35,22 @@
             var noisePicture = NoiseGenerator.Generate(picturePath, (int) noiseLevel);
 
             pictureBox1.ImageLocation = noisePicture;
+        }
+
+        private void DeletePreveousFile(String path)
+        {
+            if (path != null)
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+            }
+        }
+
+        private void ApplicationFormFormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DeletePreveousFile(NoiseGenerator.PicturePath);
         }
     }
 }

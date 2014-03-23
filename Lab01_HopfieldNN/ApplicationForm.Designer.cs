@@ -36,19 +36,19 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBoxNoise = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonNoise = new System.Windows.Forms.Button();
             this.numericUpDownNoise = new System.Windows.Forms.NumericUpDown();
+            this.buttonNoise = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxStatistics = new System.Windows.Forms.GroupBox();
-            this.buttonStatistics = new System.Windows.Forms.Button();
             this.textBoxStatistics = new System.Windows.Forms.TextBox();
+            this.buttonStatistics = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxC)).BeginInit();
             this.groupBoxSource.SuspendLayout();
             this.groupBoxNoise.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoise)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxStatistics.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -148,16 +148,12 @@
             this.groupBoxNoise.TabStop = false;
             this.groupBoxNoise.Text = "Noise";
             // 
-            // pictureBox1
+            // numericUpDownNoise
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.ImageLocation = "";
-            this.pictureBox1.Location = new System.Drawing.Point(16, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(260, 260);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.numericUpDownNoise.Location = new System.Drawing.Point(283, 211);
+            this.numericUpDownNoise.Name = "numericUpDownNoise";
+            this.numericUpDownNoise.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownNoise.TabIndex = 9;
             // 
             // buttonNoise
             // 
@@ -169,12 +165,16 @@
             this.buttonNoise.UseVisualStyleBackColor = true;
             this.buttonNoise.Click += new System.EventHandler(this.ButtonNoiseClick);
             // 
-            // numericUpDownNoise
+            // pictureBox1
             // 
-            this.numericUpDownNoise.Location = new System.Drawing.Point(283, 211);
-            this.numericUpDownNoise.Name = "numericUpDownNoise";
-            this.numericUpDownNoise.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownNoise.TabIndex = 9;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.ImageLocation = "";
+            this.pictureBox1.Location = new System.Drawing.Point(16, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(260, 260);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // groupBoxStatistics
             // 
@@ -187,15 +187,6 @@
             this.groupBoxStatistics.TabStop = false;
             this.groupBoxStatistics.Text = "Statistics";
             // 
-            // buttonStatistics
-            // 
-            this.buttonStatistics.Location = new System.Drawing.Point(328, 251);
-            this.buttonStatistics.Name = "buttonStatistics";
-            this.buttonStatistics.Size = new System.Drawing.Size(128, 28);
-            this.buttonStatistics.TabIndex = 0;
-            this.buttonStatistics.Text = "Recognize";
-            this.buttonStatistics.UseVisualStyleBackColor = true;
-            // 
             // textBoxStatistics
             // 
             this.textBoxStatistics.Location = new System.Drawing.Point(20, 19);
@@ -204,6 +195,15 @@
             this.textBoxStatistics.ReadOnly = true;
             this.textBoxStatistics.Size = new System.Drawing.Size(276, 260);
             this.textBoxStatistics.TabIndex = 1;
+            // 
+            // buttonStatistics
+            // 
+            this.buttonStatistics.Location = new System.Drawing.Point(328, 251);
+            this.buttonStatistics.Name = "buttonStatistics";
+            this.buttonStatistics.Size = new System.Drawing.Size(128, 28);
+            this.buttonStatistics.TabIndex = 0;
+            this.buttonStatistics.Text = "Recognize";
+            this.buttonStatistics.UseVisualStyleBackColor = true;
             // 
             // ApplicationForm
             // 
@@ -215,14 +215,15 @@
             this.Controls.Add(this.groupBoxSource);
             this.Name = "ApplicationForm";
             this.Text = "Lab 01 - Hopfield neural network";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ApplicationFormFormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxC)).EndInit();
             this.groupBoxSource.ResumeLayout(false);
             this.groupBoxSource.PerformLayout();
             this.groupBoxNoise.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoise)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxStatistics.ResumeLayout(false);
             this.groupBoxStatistics.PerformLayout();
             this.ResumeLayout(false);

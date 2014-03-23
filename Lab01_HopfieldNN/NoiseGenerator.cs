@@ -25,7 +25,13 @@ namespace Lab01_HopfieldNN
         /// </summary>
         private const int RGBMAX = 255;
 
-        private static String picturePath;
+        /// <summary>
+        /// Gets or sets the picture path.
+        /// </summary>
+        /// <value>
+        /// The picture path.
+        /// </value>
+        public static String PicturePath { get; set; }
 
         /// <summary>
         /// Generates the specified path.
@@ -71,7 +77,14 @@ namespace Lab01_HopfieldNN
                 }
             }
 
-            return picturePath;
+            var oldPicture = PicturePath;
+
+            PicturePath = CreateNewPath();
+            picture.Save(PicturePath);
+            picture.Dispose();
+            DeleteFile(oldPicture);
+
+            return PicturePath;
         }
 
         /// <summary>
@@ -90,9 +103,18 @@ namespace Lab01_HopfieldNN
         /// <returns></returns>
         private static String CreateNewPath()
         {
-            picturePath = String.Concat(PicturesPath.PathToNoiseFolder, Guid.NewGuid().ToString(), ".bmp");
+           PicturePath = String.Concat(PicturesPath.PathToNoiseFolder, Guid.NewGuid().ToString(), ".bmp");
 
-            return picturePath;
+           return PicturePath;
+        }
+
+        /// <summary>
+        /// Deletes the file.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        private static void DeleteFile(String path)
+        {
+            File.Delete(path);
         }
     }
 }
