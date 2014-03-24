@@ -40,9 +40,9 @@
             this.buttonNoise = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxStatistics = new System.Windows.Forms.GroupBox();
+            this.buttonTeach = new System.Windows.Forms.Button();
             this.textBoxStatistics = new System.Windows.Forms.TextBox();
             this.buttonStatistics = new System.Windows.Forms.Button();
-            this.buttonTeach = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxC)).BeginInit();
@@ -56,8 +56,7 @@
             // pictureBoxA
             // 
             this.pictureBoxA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxA.ImageLocation = "D:\\work\\VS\\sem8\\cosii\\DigitalImagesAndSignalsProcessing\\Pictures Sources\\original" +
-                "\\A\\A.bmp";
+            this.pictureBoxA.ImageLocation = PicturesPath.PathToOriginalA;
             this.pictureBoxA.Location = new System.Drawing.Point(17, 19);
             this.pictureBoxA.Name = "pictureBoxA";
             this.pictureBoxA.Size = new System.Drawing.Size(260, 260);
@@ -68,8 +67,7 @@
             // pictureBoxB
             // 
             this.pictureBoxB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxB.ImageLocation = "D:\\work\\VS\\sem8\\cosii\\DigitalImagesAndSignalsProcessing\\Pictures Sources\\original" +
-                "\\B\\B.bmp";
+            this.pictureBoxB.ImageLocation = PicturesPath.PathToOriginalB;
             this.pictureBoxB.Location = new System.Drawing.Point(337, 19);
             this.pictureBoxB.Name = "pictureBoxB";
             this.pictureBoxB.Size = new System.Drawing.Size(260, 260);
@@ -80,8 +78,7 @@
             // pictureBoxC
             // 
             this.pictureBoxC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxC.ImageLocation = "D:\\work\\VS\\sem8\\cosii\\DigitalImagesAndSignalsProcessing\\Pictures Sources\\original" +
-                "\\C\\C.bmp";
+            this.pictureBoxC.ImageLocation = PicturesPath.PathToOriginalC;
             this.pictureBoxC.Location = new System.Drawing.Point(644, 19);
             this.pictureBoxC.Name = "pictureBoxC";
             this.pictureBoxC.Size = new System.Drawing.Size(260, 260);
@@ -189,6 +186,16 @@
             this.groupBoxStatistics.TabStop = false;
             this.groupBoxStatistics.Text = "Statistics";
             // 
+            // buttonTeach
+            // 
+            this.buttonTeach.Location = new System.Drawing.Point(328, 19);
+            this.buttonTeach.Name = "buttonTeach";
+            this.buttonTeach.Size = new System.Drawing.Size(128, 31);
+            this.buttonTeach.TabIndex = 2;
+            this.buttonTeach.Text = "Teach";
+            this.buttonTeach.UseVisualStyleBackColor = true;
+            this.buttonTeach.Click += new System.EventHandler(this.ButtonTeachClick);
+            // 
             // textBoxStatistics
             // 
             this.textBoxStatistics.Location = new System.Drawing.Point(20, 19);
@@ -207,16 +214,6 @@
             this.buttonStatistics.Text = "Recognize";
             this.buttonStatistics.UseVisualStyleBackColor = true;
             this.buttonStatistics.Click += new System.EventHandler(this.ButtonStatisticsClick);
-            // 
-            // buttonTeach
-            // 
-            this.buttonTeach.Location = new System.Drawing.Point(328, 19);
-            this.buttonTeach.Name = "buttonTeach";
-            this.buttonTeach.Size = new System.Drawing.Size(128, 31);
-            this.buttonTeach.TabIndex = 2;
-            this.buttonTeach.Text = "Teach";
-            this.buttonTeach.UseVisualStyleBackColor = true;
-            this.buttonTeach.Click += new System.EventHandler(this.ButtonTeachClick);
             // 
             // ApplicationForm
             // 

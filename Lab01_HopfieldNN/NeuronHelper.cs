@@ -13,7 +13,25 @@ namespace Lab01_HopfieldNN
     /// </summary>
     public class NeuronHelper
     {
-        private int vectorLength; 
+        /// <summary>
+        /// The vector length
+        /// </summary>
+        private int vectorLength;
+
+        /// <summary>
+        /// The vector A
+        /// </summary>
+        public static sbyte[] VectorA;
+
+        /// <summary>
+        /// The vector B
+        /// </summary>
+        public static sbyte[] VectorB;
+
+        /// <summary>
+        /// The vector C
+        /// </summary>
+        public static sbyte[] VectorC;
 
         /// <summary>
         /// Convert picture to vector
