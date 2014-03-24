@@ -204,6 +204,7 @@
             this.textBoxStatistics.ReadOnly = true;
             this.textBoxStatistics.Size = new System.Drawing.Size(276, 260);
             this.textBoxStatistics.TabIndex = 1;
+            CheckForIllegalCrossThreadCalls = false;
             // 
             // buttonStatistics
             // 

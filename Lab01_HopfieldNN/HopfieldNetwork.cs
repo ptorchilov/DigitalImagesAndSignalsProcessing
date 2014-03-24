@@ -42,7 +42,7 @@ namespace Lab01_HopfieldNN
         /// <summary>
         /// The number of iterantions
         /// </summary>
-        public byte NumberOfIterantions { get; private set; }
+        public int NumberOfIterantions { get; private set; }
 
         /// <summary>
         /// Starts the recognize.
@@ -98,9 +98,10 @@ namespace Lab01_HopfieldNN
 
                         var newNoiseVector = MakeAsyncChanges(noiseVector, approximateVector, neuronNumber);
 
-                        if (NumberOfIterantions > 1000)
+                        if (NumberOfIterantions >= 10000)
                         {
                             CorrectVector = -1;
+                            return -2;
                         }
 
                         StartRecognize(newNoiseVector);
@@ -115,9 +116,10 @@ namespace Lab01_HopfieldNN
 
                             var newNoiseVector = MakeAsyncChanges(noiseVector, approximateVector, neuronNumber);
 
-                            if (NumberOfIterantions > 1000)
+                            if (NumberOfIterantions >= 10000)
                             {
                                 CorrectVector = -1;
+                                return -2;
                             }
 
                             StartRecognize(newNoiseVector); 

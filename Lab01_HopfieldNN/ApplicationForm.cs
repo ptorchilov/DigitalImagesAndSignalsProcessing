@@ -2,6 +2,7 @@
 {
     using System.Drawing;
     using System.IO;
+    using System.Threading;
     using System.Windows.Forms;
     using System;
     using Properties;
@@ -103,7 +104,11 @@
 
             var network = new HopfieldNetwork();
 
-            ChooseCorrectVector(network, vector);
+            var thread = new Thread(() => ChooseCorrectVector(network, vector), 214748364);
+
+            thread.Start();
+
+            thread.Join();
 
             picture.Dispose();
 
@@ -116,41 +121,45 @@
         /// <param name="vector">The vector.</param>
         private void ChooseCorrectVector(HopfieldNetwork network, sbyte[] vector)
         {
-            network.StartRecognize(vector);
+                network.StartRecognize(vector);
 
-            var vectorNumber = network.CorrectVector;
+                var vectorNumber = network.CorrectVector;
 
-            switch (vectorNumber)
-            {
-                case 0:
-                    {
-                        textBoxStatistics.Text += @"It's an A picture." + Environment.NewLine;
-                        textBoxStatistics.Text += @"Number of iterations: " + network.NumberOfIterantions + Environment.NewLine;
-                        ScrollTextBox();
-                        break;
-                    }
-                case 1:
-                    {
-                        textBoxStatistics.Text += @"It's a B picture." + Environment.NewLine;
-                        textBoxStatistics.Text += @"Number of iterations: " + network.NumberOfIterantions + Environment.NewLine;
-                        ScrollTextBox();
-                        break;
-                    }
-                case 2:
-                    {
-                        textBoxStatistics.Text += @"It's a C picture." + Environment.NewLine;
-                        textBoxStatistics.Text += @"Number of iterations: " + network.NumberOfIterantions + Environment.NewLine;
-                        ScrollTextBox();
-                        break;
-                    }
-                default:
-                    {
-                        textBoxStatistics.Text += @"It's unknown picture." + Environment.NewLine;
-                        textBoxStatistics.Text += @"Number of iterations: " + network.NumberOfIterantions + Environment.NewLine;
-                        ScrollTextBox();
-                        break;
-                    }
-            }
+                switch (vectorNumber)
+                {
+                    case 0:
+                        {
+                            textBoxStatistics.Text += @"It's an A picture." + Environment.NewLine;
+                            textBoxStatistics.Text += @"Number of iterations: " + network.NumberOfIterantions
+                                                      + Environment.NewLine;
+                            ScrollTextBox();
+                            break;
+                        }
+                    case 1:
+                        {
+                            textBoxStatistics.Text += @"It's a B picture." + Environment.NewLine;
+                            textBoxStatistics.Text += @"Number of iterations: " + network.NumberOfIterantions
+                                                      + Environment.NewLine;
+                            ScrollTextBox();
+                            break;
+                        }
+                    case 2:
+                        {
+                            textBoxStatistics.Text += @"It's a C picture." + Environment.NewLine;
+                            textBoxStatistics.Text += @"Number of iterations: " + network.NumberOfIterantions
+                                                      + Environment.NewLine;
+                            ScrollTextBox();
+                            break;
+                        }
+                    default:
+                        {
+                            textBoxStatistics.Text += @"It's unknown picture." + Environment.NewLine;
+                            textBoxStatistics.Text += @"Number of iterations: " + network.NumberOfIterantions
+                                                      + Environment.NewLine;
+                            ScrollTextBox();
+                            break;
+                        }
+                }
         }
 
         /// <summary>
