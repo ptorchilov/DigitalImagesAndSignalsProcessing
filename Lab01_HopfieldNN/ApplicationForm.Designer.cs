@@ -42,6 +42,7 @@
             this.groupBoxStatistics = new System.Windows.Forms.GroupBox();
             this.textBoxStatistics = new System.Windows.Forms.TextBox();
             this.buttonStatistics = new System.Windows.Forms.Button();
+            this.buttonTeach = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxC)).BeginInit();
@@ -178,6 +179,7 @@
             // 
             // groupBoxStatistics
             // 
+            this.groupBoxStatistics.Controls.Add(this.buttonTeach);
             this.groupBoxStatistics.Controls.Add(this.textBoxStatistics);
             this.groupBoxStatistics.Controls.Add(this.buttonStatistics);
             this.groupBoxStatistics.Location = new System.Drawing.Point(450, 332);
@@ -205,6 +207,16 @@
             this.buttonStatistics.Text = "Recognize";
             this.buttonStatistics.UseVisualStyleBackColor = true;
             this.buttonStatistics.Click += new System.EventHandler(this.ButtonStatisticsClick);
+            // 
+            // buttonTeach
+            // 
+            this.buttonTeach.Location = new System.Drawing.Point(328, 19);
+            this.buttonTeach.Name = "buttonTeach";
+            this.buttonTeach.Size = new System.Drawing.Size(128, 31);
+            this.buttonTeach.TabIndex = 2;
+            this.buttonTeach.Text = "Teach";
+            this.buttonTeach.UseVisualStyleBackColor = true;
+            this.buttonTeach.Click += new System.EventHandler(this.ButtonTeachClick);
             // 
             // ApplicationForm
             // 
@@ -247,6 +259,7 @@
         private System.Windows.Forms.GroupBox groupBoxStatistics;
         private System.Windows.Forms.Button buttonStatistics;
         private System.Windows.Forms.TextBox textBoxStatistics;
+        private System.Windows.Forms.Button buttonTeach;
     }
 }
 

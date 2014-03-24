@@ -6,6 +6,7 @@
 
 namespace Lab01_HopfieldNN
 {
+    using System;
     using System.Drawing;
 
     /// <summary>
@@ -13,6 +14,8 @@ namespace Lab01_HopfieldNN
     /// </summary>
     public class NeuronHelper
     {
+        private int vectorLength; 
+
         /// <summary>
         /// Convert picture to vector
         /// </summary>
@@ -20,7 +23,9 @@ namespace Lab01_HopfieldNN
         /// <returns></returns>
         public sbyte[] ConvertToVector(Bitmap picture)
         {
-            var vector = new sbyte[PictureContainer.Size * PictureContainer.Size];
+            vectorLength = PictureContainer.Size * PictureContainer.Size;
+
+            var vector = new sbyte[vectorLength];
 
             for (var i = 0; i < PictureContainer.Size; i++)
             {
@@ -43,11 +48,33 @@ namespace Lab01_HopfieldNN
         }
 
         /// <summary>
-        /// Creates the coefficient matrix W.
+        /// Creates the coefficients matrix.
+        /// </summary>
+        /// <param name="matrixA">The matrix aggregate.</param>
+        /// <param name="matrixB">The matrix attribute.</param>
+        /// <param name="matrixC">The matrix asynchronous.</param>
+        /// <returns></returns>
+        public sbyte[,] CreateCoefficientsMatrix(sbyte[,] matrixA, sbyte[,] matrixB, sbyte[,] matrixC)
+        {
+            var resultMatrix = new sbyte[vectorLength, vectorLength];
+
+            for (var i = 0; i < vectorLength; i++)
+            {
+                for (var j = 0; j < vectorLength; j++)
+                {
+                    resultMatrix[i, j] = (sbyte) (matrixA[i, j] + matrixB[i, j] + matrixC[i, j]);
+                }
+            }
+
+            return resultMatrix;
+        }
+
+        /// <summary>
+        /// Creates the matrix for pictures.
         /// </summary>
         /// <param name="vector">The vector.</param>
         /// <returns></returns>
-        public sbyte[,] CreateCoefficientMatrix(sbyte[] vector)
+        public sbyte[,] CreateMatrix(sbyte[] vector)
         {
             var coefficientMatrix = new sbyte[vector.Length,vector.Length];
 

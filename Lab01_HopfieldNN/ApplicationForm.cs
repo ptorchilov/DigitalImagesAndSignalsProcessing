@@ -81,16 +81,27 @@
             if (picturePath == null)
             {
                 MessageBox.Show(Resources.ApplicationForm_ButtonStatisticsClick_Choose_picture_);
-                return;
-            }
+            }            
 
-            var picture = new Bitmap(picturePath);
+        }
 
+        private void ButtonTeachClick(object sender, EventArgs e)
+        {
             var helper = new NeuronHelper();
 
-            var vector = helper.ConvertToVector(picture);
+            var picture = new Bitmap(PicturesPath.PathToOriginalA);
 
-            var matrix = helper.CreateCoefficientMatrix(vector);
+            var matrixA = helper.CreateMatrix(helper.ConvertToVector(picture));
+
+            picture = new Bitmap(PicturesPath.PathToOriginalB);
+
+            var matrixB = helper.CreateMatrix(helper.ConvertToVector(picture));
+            
+            picture = new Bitmap(PicturesPath.PathToOriginalC);
+
+            var matrixC = helper.CreateMatrix(helper.ConvertToVector(picture));
+
+            HopfieldNetwork.MatrixW = helper.CreateCoefficientsMatrix(matrixA, matrixB, matrixC);
 
         }
     }
