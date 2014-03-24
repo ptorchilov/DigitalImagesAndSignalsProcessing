@@ -109,9 +109,16 @@
 
         }
 
+        /// <summary>
+        /// Chooses the correct vector.
+        /// </summary>
+        /// <param name="network">The network.</param>
+        /// <param name="vector">The vector.</param>
         private void ChooseCorrectVector(HopfieldNetwork network, sbyte[] vector)
         {
-            var vectorNumber = network.StartRecognize(vector);
+            network.StartRecognize(vector);
+
+            var vectorNumber = network.CorrectVector;
 
             switch (vectorNumber)
             {

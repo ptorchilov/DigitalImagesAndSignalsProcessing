@@ -32,6 +32,14 @@ namespace Lab01_HopfieldNN
         private readonly Random random = new Random();
 
         /// <summary>
+        /// Gets the correct vector.
+        /// </summary>
+        /// <value>
+        /// The correct vector.
+        /// </value>
+        public sbyte CorrectVector { get; private set; }
+
+        /// <summary>
         /// The number of iterantions
         /// </summary>
         public byte NumberOfIterantions { get; private set; }
@@ -50,12 +58,15 @@ namespace Lab01_HopfieldNN
             {
                 var resultVector = new int[noiseVector.Length];
 
+                CopyArray(noiseVector,  ref resultVector);
+
+                var neuronNumber = random.Next(0, noiseVector.Length);
+
+                resultVector[neuronNumber] = 0;
+
                 for (var i = 0; i < noiseVector.Length; i++)
                 {
-                    for (var j = 0; j < noiseVector.Length; j++)
-                    {
-                        resultVector[i] += (MatrixW[i, j] * noiseVector[j]);
-                    }
+                    resultVector[neuronNumber] += (MatrixW[neuronNumber, i] * noiseVector[i]);
                 }
 
                 var approximateVector = ApproximateSignum(resultVector);
@@ -68,13 +79,13 @@ namespace Lab01_HopfieldNN
                     {
                         previousVector = approximateVector;
 
-                        var newNoiseVector = MakeAsyncChanges(noiseVector, approximateVector);
+                        var newNoiseVector = MakeAsyncChanges(noiseVector, approximateVector, neuronNumber);
 
                         StartRecognize(newNoiseVector);
                     }
                     else
                     {
-                        return vectorNumber;
+                        CorrectVector = vectorNumber;
                     }
                 }
                 else
@@ -85,11 +96,11 @@ namespace Lab01_HopfieldNN
                     {
                         previousVector = approximateVector;
 
-                        var newNoiseVector = MakeAsyncChanges(noiseVector, approximateVector);
+                        var newNoiseVector = MakeAsyncChanges(noiseVector, approximateVector, neuronNumber);
 
-                        if (NumberOfIterantions > 200)
+                        if (NumberOfIterantions > 1000)
                         {
-                            throw new StackOverflowException("Too many iterations");
+                            CorrectVector = -1;
                         }
 
                         StartRecognize(newNoiseVector);
@@ -98,12 +109,28 @@ namespace Lab01_HopfieldNN
                     {
                         var correctVector = SearchCorrectVector(approximateVector);
 
-                        return correctVector;
+                        if (correctVector == -1)
+                        {
+                            previousVector = approximateVector;
+
+                            var newNoiseVector = MakeAsyncChanges(noiseVector, approximateVector, neuronNumber);
+
+                            if (NumberOfIterantions > 1000)
+                            {
+                                CorrectVector = -1;
+                            }
+
+                            StartRecognize(newNoiseVector); 
+                        }
+                        else
+                        {
+                            CorrectVector = correctVector;
+                        }
                     }
                 }
             }
 
-            return -1;
+            return -2;
         }
 
         /// <summary>
@@ -156,11 +183,10 @@ namespace Lab01_HopfieldNN
         /// </summary>
         /// <param name="noiseVector">The noise vector.</param>
         /// <param name="approximateVector">The approximate vector.</param>
+        /// <param name="neuronNumber">The neuron number.</param>
         /// <returns></returns>
-        private sbyte[] MakeAsyncChanges(sbyte[] noiseVector, sbyte[] approximateVector)
+        private sbyte[] MakeAsyncChanges(sbyte[] noiseVector, sbyte[] approximateVector, int neuronNumber)
         {
-            var neuronNumber = random.Next(0, approximateVector.Length);
-
             noiseVector[neuronNumber] = approximateVector[neuronNumber];
 
             return noiseVector;
@@ -188,6 +214,19 @@ namespace Lab01_HopfieldNN
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Copies the array.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="target">The target.</param>
+        private void CopyArray(sbyte[] source, ref int[] target)
+        {
+            for (var i = 0; i < source.Length; i++)
+            {
+                target[i] = source[i];
+            } 
         }
     }
 }
