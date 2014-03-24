@@ -6,7 +6,6 @@
 
 namespace Lab01_HopfieldNN
 {
-    using System;
     using System.Drawing;
 
     /// <summary>
@@ -62,7 +61,14 @@ namespace Lab01_HopfieldNN
             {
                 for (var j = 0; j < vectorLength; j++)
                 {
-                    resultMatrix[i, j] = (sbyte) (matrixA[i, j] + matrixB[i, j] + matrixC[i, j]);
+                    if (i == j)
+                    {
+                        resultMatrix[i, j] = 0;
+                    }
+                    else
+                    {
+                        resultMatrix[i, j] = (sbyte)(matrixA[i, j] + matrixB[i, j] + matrixC[i, j]);    
+                    }
                 }
             }
 
