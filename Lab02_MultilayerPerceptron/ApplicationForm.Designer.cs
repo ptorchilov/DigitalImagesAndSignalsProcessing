@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(944, 682);
             this.Name = "ApplicationForm";
             this.Text = "Lab 02 - Multilayer Perceptron";
             this.ResumeLayout(false);

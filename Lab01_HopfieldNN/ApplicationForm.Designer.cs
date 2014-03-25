@@ -152,6 +152,7 @@
             this.numericUpDownNoise.Name = "numericUpDownNoise";
             this.numericUpDownNoise.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownNoise.TabIndex = 9;
+            this.numericUpDownNoise.Increment = 10;
             // 
             // buttonNoise
             // 
