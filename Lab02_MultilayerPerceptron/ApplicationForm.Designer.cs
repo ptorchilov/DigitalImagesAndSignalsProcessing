@@ -40,6 +40,14 @@
             this.numericUpDownPercentage = new System.Windows.Forms.NumericUpDown();
             this.pictureBoxNoise = new System.Windows.Forms.PictureBox();
             this.groupBoxStatistics = new System.Windows.Forms.GroupBox();
+            this.labelTimeout = new System.Windows.Forms.Label();
+            this.textBoxTimeout = new System.Windows.Forms.TextBox();
+            this.labelError = new System.Windows.Forms.Label();
+            this.textBoxError = new System.Windows.Forms.TextBox();
+            this.labelbeta = new System.Windows.Forms.Label();
+            this.textBoxBeta = new System.Windows.Forms.TextBox();
+            this.labelAlpha = new System.Windows.Forms.Label();
+            this.textBoxAlpha = new System.Windows.Forms.TextBox();
             this.labelC = new System.Windows.Forms.Label();
             this.textBoxC = new System.Windows.Forms.TextBox();
             this.labelB = new System.Windows.Forms.Label();
@@ -49,14 +57,6 @@
             this.buttonRecognize = new System.Windows.Forms.Button();
             this.buttonTeach = new System.Windows.Forms.Button();
             this.textBoxStatistics = new System.Windows.Forms.TextBox();
-            this.textBoxAlpha = new System.Windows.Forms.TextBox();
-            this.labelAlpha = new System.Windows.Forms.Label();
-            this.labelbeta = new System.Windows.Forms.Label();
-            this.textBoxBeta = new System.Windows.Forms.TextBox();
-            this.labelError = new System.Windows.Forms.Label();
-            this.textBoxError = new System.Windows.Forms.TextBox();
-            this.labelTimeout = new System.Windows.Forms.Label();
-            this.textBoxTimeout = new System.Windows.Forms.TextBox();
             this.groupBoxSources.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxC)).BeginInit();
@@ -221,6 +221,74 @@
             this.groupBoxStatistics.TabStop = false;
             this.groupBoxStatistics.Text = "Staticstics";
             // 
+            // labelTimeout
+            // 
+            this.labelTimeout.AutoSize = true;
+            this.labelTimeout.Location = new System.Drawing.Point(339, 126);
+            this.labelTimeout.Name = "labelTimeout";
+            this.labelTimeout.Size = new System.Drawing.Size(41, 13);
+            this.labelTimeout.TabIndex = 16;
+            this.labelTimeout.Text = "timeout";
+            // 
+            // textBoxTimeout
+            // 
+            this.textBoxTimeout.Location = new System.Drawing.Point(380, 123);
+            this.textBoxTimeout.Name = "textBoxTimeout";
+            this.textBoxTimeout.Size = new System.Drawing.Size(57, 20);
+            this.textBoxTimeout.TabIndex = 15;
+            this.textBoxTimeout.Text = "10000";
+            // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(339, 100);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(28, 13);
+            this.labelError.TabIndex = 14;
+            this.labelError.Text = "error";
+            // 
+            // textBoxError
+            // 
+            this.textBoxError.Location = new System.Drawing.Point(380, 97);
+            this.textBoxError.Name = "textBoxError";
+            this.textBoxError.Size = new System.Drawing.Size(57, 20);
+            this.textBoxError.TabIndex = 13;
+            this.textBoxError.Text = "0.01";
+            // 
+            // labelbeta
+            // 
+            this.labelbeta.AutoSize = true;
+            this.labelbeta.Location = new System.Drawing.Point(339, 74);
+            this.labelbeta.Name = "labelbeta";
+            this.labelbeta.Size = new System.Drawing.Size(28, 13);
+            this.labelbeta.TabIndex = 12;
+            this.labelbeta.Text = "beta";
+            // 
+            // textBoxBeta
+            // 
+            this.textBoxBeta.Location = new System.Drawing.Point(380, 71);
+            this.textBoxBeta.Name = "textBoxBeta";
+            this.textBoxBeta.Size = new System.Drawing.Size(57, 20);
+            this.textBoxBeta.TabIndex = 11;
+            this.textBoxBeta.Text = "1";
+            // 
+            // labelAlpha
+            // 
+            this.labelAlpha.AutoSize = true;
+            this.labelAlpha.Location = new System.Drawing.Point(339, 48);
+            this.labelAlpha.Name = "labelAlpha";
+            this.labelAlpha.Size = new System.Drawing.Size(33, 13);
+            this.labelAlpha.TabIndex = 10;
+            this.labelAlpha.Text = "alpha";
+            // 
+            // textBoxAlpha
+            // 
+            this.textBoxAlpha.Location = new System.Drawing.Point(380, 45);
+            this.textBoxAlpha.Name = "textBoxAlpha";
+            this.textBoxAlpha.Size = new System.Drawing.Size(57, 20);
+            this.textBoxAlpha.TabIndex = 9;
+            this.textBoxAlpha.Text = "1";
+            // 
             // labelC
             // 
             this.labelC.AutoSize = true;
@@ -283,6 +351,7 @@
             this.buttonRecognize.TabIndex = 2;
             this.buttonRecognize.Text = "Recognize";
             this.buttonRecognize.UseVisualStyleBackColor = true;
+            this.buttonRecognize.Click += new System.EventHandler(this.ButtonRecognizeClick);
             // 
             // buttonTeach
             // 
@@ -303,74 +372,6 @@
             this.textBoxStatistics.ReadOnly = true;
             this.textBoxStatistics.Size = new System.Drawing.Size(300, 217);
             this.textBoxStatistics.TabIndex = 0;
-            // 
-            // textBoxAlpha
-            // 
-            this.textBoxAlpha.Location = new System.Drawing.Point(380, 45);
-            this.textBoxAlpha.Name = "textBoxAlpha";
-            this.textBoxAlpha.Size = new System.Drawing.Size(57, 20);
-            this.textBoxAlpha.TabIndex = 9;
-            this.textBoxAlpha.Text = "1";
-            // 
-            // labelAlpha
-            // 
-            this.labelAlpha.AutoSize = true;
-            this.labelAlpha.Location = new System.Drawing.Point(339, 48);
-            this.labelAlpha.Name = "labelAlpha";
-            this.labelAlpha.Size = new System.Drawing.Size(33, 13);
-            this.labelAlpha.TabIndex = 10;
-            this.labelAlpha.Text = "alpha";
-            // 
-            // labelbeta
-            // 
-            this.labelbeta.AutoSize = true;
-            this.labelbeta.Location = new System.Drawing.Point(339, 74);
-            this.labelbeta.Name = "labelbeta";
-            this.labelbeta.Size = new System.Drawing.Size(28, 13);
-            this.labelbeta.TabIndex = 12;
-            this.labelbeta.Text = "beta";
-            // 
-            // textBoxBeta
-            // 
-            this.textBoxBeta.Location = new System.Drawing.Point(380, 71);
-            this.textBoxBeta.Name = "textBoxBeta";
-            this.textBoxBeta.Size = new System.Drawing.Size(57, 20);
-            this.textBoxBeta.TabIndex = 11;
-            this.textBoxBeta.Text = "1";
-            // 
-            // labelError
-            // 
-            this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(339, 100);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(28, 13);
-            this.labelError.TabIndex = 14;
-            this.labelError.Text = "error";
-            // 
-            // textBoxError
-            // 
-            this.textBoxError.Location = new System.Drawing.Point(380, 97);
-            this.textBoxError.Name = "textBoxError";
-            this.textBoxError.Size = new System.Drawing.Size(57, 20);
-            this.textBoxError.TabIndex = 13;
-            this.textBoxError.Text = "0.01";
-            // 
-            // labelTimeout
-            // 
-            this.labelTimeout.AutoSize = true;
-            this.labelTimeout.Location = new System.Drawing.Point(339, 126);
-            this.labelTimeout.Name = "labelTimeout";
-            this.labelTimeout.Size = new System.Drawing.Size(41, 13);
-            this.labelTimeout.TabIndex = 16;
-            this.labelTimeout.Text = "timeout";
-            // 
-            // textBoxTimeout
-            // 
-            this.textBoxTimeout.Location = new System.Drawing.Point(380, 123);
-            this.textBoxTimeout.Name = "textBoxTimeout";
-            this.textBoxTimeout.Size = new System.Drawing.Size(57, 20);
-            this.textBoxTimeout.TabIndex = 15;
-            this.textBoxTimeout.Text = "10000";
             // 
             // ApplicationForm
             // 
