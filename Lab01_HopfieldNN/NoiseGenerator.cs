@@ -38,14 +38,15 @@ namespace Lab01_HopfieldNN
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="noiseLevel">The noise level.</param>
+        /// <param name="pictureSize">Size of the picture.</param>
         /// <returns></returns>
-        public static String Generate(String path, int noiseLevel)
+        public static String Generate(String path, int noiseLevel, int pictureSize)
         {
             var noisePicturePath = CreateNewPath();
 
             File.Copy(path, noisePicturePath);
 
-            var picture = new Bitmap(noisePicturePath);
+            var picture = new PictureContainer(noisePicturePath, pictureSize);
 
             return Generate(picture, noiseLevel);
         }
@@ -56,23 +57,23 @@ namespace Lab01_HopfieldNN
         /// <param name="picture">The picture.</param>
         /// <param name="noiseLevel">The noise level.</param>
         /// <returns></returns>
-        private static String Generate(Bitmap picture, int noiseLevel)
+        private static String Generate(PictureContainer picture, int noiseLevel)
         {
             int randomValue;
 
             Color pixel;
 
-            for (var i = 0; i < PictureContainer.Size; i++)
+            for (var i = 0; i < picture.Size; i++)
             {
-                for (var j = 0; j < PictureContainer.Size; j++)
+                for (var j = 0; j < picture.Size; j++)
                 {
-                    pixel = picture.GetPixel(i, j);
+                    pixel = picture.Picture.GetPixel(i, j);
 
                     randomValue = Random.Next(0, 100);
 
                     if (randomValue < noiseLevel)
                     {
-                        picture.SetPixel(i, j, InvertPixel(pixel));
+                        picture.Picture.SetPixel(i, j, InvertPixel(pixel));
                     }
                 }
             }
@@ -80,8 +81,8 @@ namespace Lab01_HopfieldNN
             var oldPicture = PicturePath;
 
             PicturePath = CreateNewPath();
-            picture.Save(PicturePath);
-            picture.Dispose();
+            picture.Picture.Save(PicturePath);
+            picture.Picture.Dispose();
             DeleteFile(oldPicture);
 
             return PicturePath;

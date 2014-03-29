@@ -52,6 +52,8 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Perceptron.cs" />
+    <Compile Include="PerceptronHelper.cs" />
     <Compile Include="PicturesPath.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +78,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lab01_HopfieldNN\Lab01_HopfieldNN.csproj">
+      <Project>{FFCD5566-E684-4CA6-BB3E-919B1AAD9B36}</Project>
+      <Name>Lab01_HopfieldNN</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

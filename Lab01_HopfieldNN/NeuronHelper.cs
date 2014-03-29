@@ -38,25 +38,25 @@ namespace Lab01_HopfieldNN
         /// </summary>
         /// <param name="picture">The picture.</param>
         /// <returns></returns>
-        public sbyte[] ConvertToVector(Bitmap picture)
+        public sbyte[] ConvertToVector(PictureContainer picture)
         {
-            vectorLength = PictureContainer.Size * PictureContainer.Size;
+            vectorLength = picture.Size * picture.Size;
 
             var vector = new sbyte[vectorLength];
 
-            for (var i = 0; i < PictureContainer.Size; i++)
+            for (var i = 0; i < picture.Size; i++)
             {
-                for (var j = 0; j < PictureContainer.Size; j++)
+                for (var j = 0; j < picture.Size; j++)
                 {
-                    var pixel = picture.GetPixel(i, j);
+                    var pixel = picture.Picture.GetPixel(i, j);
 
                     if (pixel.R > 250)
                     {
-                        vector[i * PictureContainer.Size + j] = 1;
+                        vector[i * picture.Size + j] = 1;
                     }
                     else
                     {
-                        vector[i * PictureContainer.Size + j] = -1;
+                        vector[i * picture.Size + j] = -1;
                     }
                 }
             }

@@ -1,6 +1,5 @@
 ﻿namespace Lab01_HopfieldNN
 {
-    using System.Drawing;
     using System.IO;
     using System.Threading;
     using System.Windows.Forms;
@@ -46,7 +45,7 @@
                 picturePath = PicturesPath.PathToOriginalC;
             }
 
-            var noisePicture = NoiseGenerator.Generate(picturePath, (int) noiseLevel);
+            var noisePicture = NoiseGenerator.Generate(picturePath, (int) noiseLevel, 13);
 
             picturePath = noisePicture;
 
@@ -98,7 +97,7 @@
 
             var helper = new NeuronHelper();
 
-            var picture = new Bitmap(picturePath);
+            var picture = new PictureContainer(picturePath, 13);
 
             var vector = helper.ConvertToVector(picture);
 
@@ -110,7 +109,7 @@
 
             thread.Join();
 
-            picture.Dispose();
+            picture.Picture.Dispose();
 
         }
 
@@ -171,15 +170,15 @@
         {
             var helper = new NeuronHelper();
 
-            var picture = new Bitmap(PicturesPath.PathToOriginalA);
+            var picture = new PictureContainer(PicturesPath.PathToOriginalA, 13);
             NeuronHelper.VectorA = helper.ConvertToVector(picture);
             var matrixA = helper.CreateMatrix(NeuronHelper.VectorA);
 
-            picture = new Bitmap(PicturesPath.PathToOriginalB);
+            picture = new PictureContainer(PicturesPath.PathToOriginalB, 13);
             NeuronHelper.VectorB = helper.ConvertToVector(picture);
             var matrixB = helper.CreateMatrix(NeuronHelper.VectorB);
 
-            picture = new Bitmap(PicturesPath.PathToOriginalC);
+            picture = new PictureContainer(PicturesPath.PathToOriginalC, 13);
             NeuronHelper.VectorC = helper.ConvertToVector(picture);
             var matrixC = helper.CreateMatrix(NeuronHelper.VectorC);
 

@@ -25,15 +25,17 @@ namespace Lab01_HopfieldNN
         /// <summary>
         /// The size of picture
         /// </summary>
-        public const int Size = 13;
+        public int Size { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PictureContainer"/> class.
+        /// Initializes a new instance of the <see cref="PictureContainer" /> class.
         /// </summary>
         /// <param name="path">The path.</param>
-        public PictureContainer(String path)
+        /// <param name="size">The size.</param>
+        public PictureContainer(String path, int size)
         {
             Picture = new Bitmap(path);
+            Size = size;
         }
     }
 }
