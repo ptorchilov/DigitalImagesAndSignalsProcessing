@@ -253,7 +253,7 @@
             this.textBoxError.Name = "textBoxError";
             this.textBoxError.Size = new System.Drawing.Size(57, 20);
             this.textBoxError.TabIndex = 13;
-            this.textBoxError.Text = "0.01";
+            this.textBoxError.Text = "0,01";
             // 
             // labelbeta
             // 

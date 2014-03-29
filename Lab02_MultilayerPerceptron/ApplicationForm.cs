@@ -109,6 +109,8 @@
 
             helper = new PerceptronHelper(perceptron, 100, 3);
 
+            helper.Teach();
+
             textBoxStatistics.Text += @"Network has been teached." + Environment.NewLine;
             textBoxStatistics.Text += @"Number of iterations: " + helper.NumberOfIterations + Environment.NewLine;
 
@@ -155,13 +157,17 @@
 
             var neuronHelper = new NeuronHelper();
 
-            var vector = neuronHelper.ConvertToVector(new PictureContainer(picturePath, 10));
+            var picture = new PictureContainer(picturePath, 10);
+
+            var vector = neuronHelper.ConvertToVector(picture);
 
             var percentage = helper.Recognize(vector);
 
             textBoxA.Text = percentage[0].ToString(CultureInfo.InvariantCulture);
             textBoxB.Text = percentage[1].ToString(CultureInfo.InvariantCulture);
             textBoxC.Text = percentage[2].ToString(CultureInfo.InvariantCulture);
+
+            picture.Picture.Dispose();
         }
     }
 }
