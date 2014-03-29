@@ -23,12 +23,12 @@ namespace Lab02_MultilayerPerceptron
         /// The path to B
         /// </summary>
         public static String PathToOriginalB =
-            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\10\A\B";
+            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\10\B\B";
 
         /// <summary>
         /// The path C
         /// </summary>
         public static String PathToOriginalC =
-            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\10\A\C";
+            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\10\C\C";
     }
 }

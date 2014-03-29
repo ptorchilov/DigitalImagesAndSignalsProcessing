@@ -5,4 +5,3 @@ D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab02_MultilayerPerceptr
 D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab02_MultilayerPerceptron\obj\x86\Debug\Lab02_MultilayerPerceptron.csproj.GenerateResource.Cache
 D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab02_MultilayerPerceptron\obj\x86\Debug\Lab02_MultilayerPerceptron.exe
 D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab02_MultilayerPerceptron\obj\x86\Debug\Lab02_MultilayerPerceptron.pdb
-D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab02_MultilayerPerceptron\obj\x86\Debug\Lab02_MultilayerPerceptron.csprojResolveAssemblyReference.cache
