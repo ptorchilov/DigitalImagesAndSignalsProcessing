@@ -100,6 +100,7 @@
                 int.Parse(textBoxTimeout.Text),
                 container);
 
+            var helper = new PerceptronHelper(perceptron);
 
         }
 
