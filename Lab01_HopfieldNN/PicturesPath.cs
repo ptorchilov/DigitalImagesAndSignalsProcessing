@@ -17,19 +17,19 @@ namespace Lab01_HopfieldNN
         /// The path to A picture
         /// </summary>
         public static String PathToOriginalA =
-            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\A\A.bmp";
+            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\13\A\A.bmp";
 
         /// <summary>
         /// The path to B picture.
         /// </summary>
         public static String PathToOriginalB =
-            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\B\B.bmp";
+            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\13\B\B.bmp";
 
         /// <summary>
         /// The path to C picture.
         /// </summary>
         public static String PathToOriginalC =
-            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\C\C.bmp";
+            @"D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Pictures Sources\original\13\C\C.bmp";
 
         /// <summary>
         /// The path to folder with noises pictures
