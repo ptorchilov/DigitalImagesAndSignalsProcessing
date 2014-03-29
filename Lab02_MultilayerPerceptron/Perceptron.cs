@@ -44,18 +44,28 @@ namespace Lab02_MultilayerPerceptron
         public int Timeout { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Perceptron"/> class.
+        /// Gets the vectors.
+        /// </summary>
+        /// <value>
+        /// The vectors.
+        /// </value>
+        public VectorsContainer Vectors { get; private set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Perceptron" /> class.
         /// </summary>
         /// <param name="alpha">The alpha.</param>
         /// <param name="beta">The beta.</param>
         /// <param name="error">The error.</param>
         /// <param name="timeout">The timeout.</param>
-        public Perceptron(double alpha, double beta, double error, int timeout)
+        /// <param name="vectors">The vectors.</param>
+        public Perceptron(double alpha, double beta, double error, int timeout, VectorsContainer vectors)
         {
             Alpha = alpha;
             Beta = beta;
             Error = error;
             Timeout = timeout;
+            Vectors = vectors;
         }
 
     }

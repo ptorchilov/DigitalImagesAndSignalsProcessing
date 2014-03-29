@@ -33,15 +33,15 @@
 
             if (radioButtonA.Checked)
             {
-                picturePath = PicturesPath.PathToOriginalA + "1.bmp";
+                picturePath = PicturesPath.PathToOriginalA;
             }
             else if (radioButtonB.Checked)
             {
-                picturePath = PicturesPath.PathToOriginalB + "1.bmp";
+                picturePath = PicturesPath.PathToOriginalB;
             }
             else if (radioButtonC.Checked)
             {
-                picturePath = PicturesPath.PathToOriginalC + "1.bmp";
+                picturePath = PicturesPath.PathToOriginalC;
             }
 
             var noisePicture = NoiseGenerator.Generate(picturePath, (int) noiseLevel, 10);
@@ -87,6 +87,19 @@
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void ButtonTeachClick(object sender, EventArgs e)
         {
+            var container = this.GetVectorContainer(
+                PicturesPath.PathToOriginalA,
+                PicturesPath.PathToOriginalB,
+                PicturesPath.PathToOriginalC,
+                new NeuronHelper());
+
+            var perceptron = new Perceptron(
+                double.Parse(textBoxAlpha.Text),
+                double.Parse(textBoxBeta.Text),
+                double.Parse(textBoxError.Text),
+                int.Parse(textBoxTimeout.Text),
+                container);
+
 
         }
 
@@ -98,6 +111,15 @@
         private void ApplicationFormFormClosing(object sender, FormClosingEventArgs e)
         {
             DeletePreveousFile(NoiseGenerator.PicturePath);
+        }
+
+        private VectorsContainer GetVectorContainer(String pathA, String pathB, String pathC, NeuronHelper helper)
+        {
+            var vectorA = helper.ConvertToVector(new PictureContainer(pathA, 10));
+            var vectorB = helper.ConvertToVector(new PictureContainer(pathB, 10));
+            var vectorC = helper.ConvertToVector(new PictureContainer(pathC, 10));
+
+            return new VectorsContainer(vectorA, vectorB, vectorC);
         }
     }
 }
