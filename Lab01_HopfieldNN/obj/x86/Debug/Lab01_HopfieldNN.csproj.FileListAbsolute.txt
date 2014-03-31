@@ -12,3 +12,4 @@ D:\univer\8 semestr\ЦОСиИ\labs\DigitalImagesAndSignalsProcessing\Lab01_Hopf
 D:\univer\8 semestr\ЦОСиИ\labs\DigitalImagesAndSignalsProcessing\Lab01_HopfieldNN\obj\x86\Debug\Lab01_HopfieldNN.csproj.GenerateResource.Cache
 D:\univer\8 semestr\ЦОСиИ\labs\DigitalImagesAndSignalsProcessing\Lab01_HopfieldNN\bin\Debug\Lab01_HopfieldNN.exe
 D:\univer\8 semestr\ЦОСиИ\labs\DigitalImagesAndSignalsProcessing\Lab01_HopfieldNN\bin\Debug\Lab01_HopfieldNN.pdb
+D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab01_HopfieldNN\obj\x86\Debug\Lab01_HopfieldNN.csprojResolveAssemblyReference.cache

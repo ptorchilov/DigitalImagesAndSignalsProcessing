@@ -253,7 +253,7 @@
             this.textBoxError.Name = "textBoxError";
             this.textBoxError.Size = new System.Drawing.Size(57, 20);
             this.textBoxError.TabIndex = 13;
-            this.textBoxError.Text = "0,01";
+            this.textBoxError.Text = "0,05";
             // 
             // labelbeta
             // 
@@ -270,7 +270,7 @@
             this.textBoxBeta.Name = "textBoxBeta";
             this.textBoxBeta.Size = new System.Drawing.Size(57, 20);
             this.textBoxBeta.TabIndex = 11;
-            this.textBoxBeta.Text = "1";
+            this.textBoxBeta.Text = "0,01";
             // 
             // labelAlpha
             // 
@@ -287,7 +287,7 @@
             this.textBoxAlpha.Name = "textBoxAlpha";
             this.textBoxAlpha.Size = new System.Drawing.Size(57, 20);
             this.textBoxAlpha.TabIndex = 9;
-            this.textBoxAlpha.Text = "1";
+            this.textBoxAlpha.Text = "0,7";
             // 
             // labelC
             // 

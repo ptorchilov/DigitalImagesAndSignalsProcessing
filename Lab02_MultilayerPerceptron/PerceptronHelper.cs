@@ -38,20 +38,44 @@ namespace Lab02_MultilayerPerceptron
         /// </summary>
         private byte m;
 
+        /// <summary>
+        /// The hidden layer
+        /// </summary>
         private double[,] V;
 
+        /// <summary>
+        /// The output layer
+        /// </summary>
         private double[,] W;
 
+        /// <summary>
+        /// The threshold of the hidden layer
+        /// </summary>
         private double[] Q;
 
+        /// <summary>
+        /// The threshold output layer
+        /// </summary>
         private double[] T;
 
+        /// <summary>
+        /// The threshold of the hidden layer with sigma function
+        /// </summary>
         private double[] G;
 
+        /// <summary>
+        /// The threshold output layer with sigma function
+        /// </summary>
         private double[] Y;
 
+        /// <summary>
+        /// The error of output layer
+        /// </summary>
         private double[] E;
 
+        /// <summary>
+        /// The error of hidden layer
+        /// </summary>
         private double[] D;
 
         public int NumberOfIterations { get; private set; }
@@ -245,7 +269,7 @@ namespace Lab02_MultilayerPerceptron
             //2.16
             for (var i = 0; i < h; i++)
             {
-                Q[i] = perceptron.Beta * G[i] * (1 - G[i]) * E[i];
+                Q[i] += perceptron.Beta * G[i] * (1 - G[i]) * E[i];
             }
 
             return maxError;
