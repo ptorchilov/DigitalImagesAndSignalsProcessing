@@ -62,7 +62,9 @@ namespace Lab03_RBF
         /// </summary>
         private double[] D;
 
-        private List<double[]> MathWait; 
+        private List<double[]> MathWait;
+
+        private double sko;
 
         #endregion
 
@@ -155,7 +157,7 @@ namespace Lab03_RBF
             var sko1 = 0.0;
             var sko2 = 0.0;
             var sko3 = 0.0;
-
+            
             for (var i = 0; i < n; i++)
             {
                 sko1 += Math.Pow(pictureB[i] - pictureA[i], 2);
@@ -164,7 +166,7 @@ namespace Lab03_RBF
             }
 
             var sko = Math.Min(Math.Min(sko1, sko2), sko3);
-
+            
             return sko / 2;
         }
 
@@ -272,7 +274,7 @@ namespace Lab03_RBF
             MathWait.Add(this.GetMathWait(rbf.Vectors.VectorB1, rbf.Vectors.VectorB2, rbf.Vectors.VectorB3));
             MathWait.Add(this.GetMathWait(rbf.Vectors.VectorC1, rbf.Vectors.VectorC2, rbf.Vectors.VectorC3));
 
-            var sko = this.GetSKO(MathWait[0], MathWait[1], MathWait[2]);
+            sko = this.GetSKO(MathWait[0], MathWait[1], MathWait[2]);
 
             var vectors = new List<sbyte[]>(m * h);
 
@@ -298,6 +300,35 @@ namespace Lab03_RBF
 
                 teached = IsTeached(maxError);
             }
+        }
+
+        public double[] Recognize(sbyte[] noiseVector) 
+        {
+            for (var i = 0; i < m; i++)
+            {
+                G[i] = Math.Exp((-1) * (Evklid_number(noiseVector, MathWait[i])) / Math.Pow(sko, 2));
+            }
+
+            for (int i = 0; i < m; i++)
+            {
+                var t = 0.0;
+
+                for (int j = 0; j < m; j++)
+                {
+                    t += W[j, i] * G[j];
+                }
+
+                Y[i] = t;
+            }
+
+            var result = new double[m];
+
+            for (var i = 0; i < m; i++)
+            {
+                result[i] = Y[i] * 100;
+            }
+
+            return result;
         }
     }
 }
