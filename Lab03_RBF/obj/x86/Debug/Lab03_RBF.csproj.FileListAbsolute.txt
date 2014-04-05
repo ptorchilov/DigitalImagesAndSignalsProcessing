@@ -1,0 +1,8 @@
+D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab03_RBF\bin\Debug\Lab03_RBF.exe
+D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab03_RBF\bin\Debug\Lab03_RBF.pdb
+D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab03_RBF\obj\x86\Debug\Lab03_RBF.csprojResolveAssemblyReference.cache
+D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab03_RBF\obj\x86\Debug\Lab03_RBF.ApplicationForm.resources
+D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab03_RBF\obj\x86\Debug\Lab03_RBF.Properties.Resources.resources
+D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab03_RBF\obj\x86\Debug\Lab03_RBF.csproj.GenerateResource.Cache
+D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab03_RBF\obj\x86\Debug\Lab03_RBF.exe
+D:\work\VS\sem8\cosii\DigitalImagesAndSignalsProcessing\Lab03_RBF\obj\x86\Debug\Lab03_RBF.pdb

@@ -67,6 +67,5 @@ namespace Lab02_MultilayerPerceptron
             Timeout = timeout;
             Vectors = vectors;
         }
-
     }
 }

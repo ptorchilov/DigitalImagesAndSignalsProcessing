@@ -220,9 +220,11 @@ namespace Lab02_MultilayerPerceptron
                 if (number == i)
                 {
                     value = 1.0;
+
                 }
 
                 D[i] = value - Y[i];
+               
                 var abs = Math.Abs(D[i]);
 
                 if (abs > maxError)
