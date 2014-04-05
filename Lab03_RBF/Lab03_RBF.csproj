@@ -55,7 +55,9 @@
     <Compile Include="PicturesPath.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VectorsContainerEnhanced.cs" />
+    <Compile Include="RBF.cs" />
+    <Compile Include="RBFHepler.cs" />
+    <Compile Include="VectorsContainer.cs" />
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
