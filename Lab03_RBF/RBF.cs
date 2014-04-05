@@ -12,6 +12,12 @@ namespace Lab03_RBF
     // ReSharper disable once InconsistentNaming
     public class RBF
     {
+        #region Private Fields
+
+        private double error; 
+
+        #endregion
+
         #region Public Properties
 
         /// <summary>
@@ -28,7 +34,10 @@ namespace Lab03_RBF
         /// <value>
         /// The error.
         /// </value>
-        public double Error { get; private set; }
+        public double Error {
+            get { return error * 2.2; }
+            private set { error = value; }
+        }
 
         /// <summary>
         /// Gets the timeout.

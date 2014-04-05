@@ -25,22 +25,22 @@ namespace Lab03_RBF
         /// <summary>
         /// The RBF
         /// </summary>
-        private RBF rbf;
+        private readonly RBF rbf;
 
         /// <summary>
         /// The number on neurons.
         /// </summary>
-        private byte n;
+        private readonly byte n;
 
         /// <summary>
         /// The number of RBF neurons.
         /// </summary>
-        private byte h;
+        private readonly byte h;
 
         /// <summary>
         /// The number of output neurons.
         /// </summary>
-        private byte m;
+        private readonly byte m;
 
         /// <summary>
         /// The output layer.
@@ -62,20 +62,38 @@ namespace Lab03_RBF
         /// </summary>
         private double[] D;
 
+        /// <summary>
+        /// The math wait
+        /// </summary>
         private List<double[]> MathWait;
 
+        /// <summary>
+        /// The sko
+        /// </summary>
         private double sko;
 
         #endregion
 
         #region Public Properties
 
+        /// <summary>
+        /// Gets the number of iterations.
+        /// </summary>
+        /// <value>
+        /// The number of iterations.
+        /// </value>
         public int NumberOfIterations { get; private set; }
 
         #endregion
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RBFHepler"/> class.
+        /// </summary>
+        /// <param name="rbf">The RBF.</param>
+        /// <param name="n">The asynchronous.</param>
+        /// <param name="m">The command.</param>
         public RBFHepler(RBF rbf, byte n, byte m)
         {
             this.rbf = rbf;
@@ -140,6 +158,13 @@ namespace Lab03_RBF
             return rand;
         }
 
+        /// <summary>
+        /// Gets the math wait.
+        /// </summary>
+        /// <param name="vector1">The vector1.</param>
+        /// <param name="vector2">The vector2.</param>
+        /// <param name="vector3">The vector3.</param>
+        /// <returns></returns>
         private double[] GetMathWait(sbyte[] vector1, sbyte[] vector2, sbyte[] vector3)
         {
             var result = new double[n];
@@ -152,6 +177,13 @@ namespace Lab03_RBF
             return result;
         }
 
+        /// <summary>
+        /// Gets the sko.
+        /// </summary>
+        /// <param name="pictureA">The picture aggregate.</param>
+        /// <param name="pictureB">The picture attribute.</param>
+        /// <param name="pictureC">The picture asynchronous.</param>
+        /// <returns></returns>
         private double GetSKO(double[] pictureA, double[] pictureB, double[] pictureC)
         {
             var sko1 = 0.0;
@@ -165,12 +197,16 @@ namespace Lab03_RBF
                 sko3 += Math.Pow(pictureC[i] - pictureB[i], 2);
             }
 
-            var sko = Math.Min(Math.Min(sko1, sko2), sko3);
-            
-            return sko / 2;
+            return Math.Min(Math.Min(sko1, sko2), sko3) / 2;
         }
 
-        private double TeachVector(sbyte[] vector, double sko, byte numberOfPicture)
+        /// <summary>
+        /// Teaches the vector.
+        /// </summary>
+        /// <param name="vector">The vector.</param>
+        /// <param name="numberOfPicture">The number of picture.</param>
+        /// <returns></returns>
+        private double TeachVector(sbyte[] vector, byte numberOfPicture)
         {
             var maxError = 0.0;
 
@@ -215,6 +251,12 @@ namespace Lab03_RBF
             return maxError;
         }
 
+        /// <summary>
+        /// Evklid_numbers the specified vector.
+        /// </summary>
+        /// <param name="vector">The vector.</param>
+        /// <param name="mathWait">The math wait.</param>
+        /// <returns></returns>
         private double Evklid_number(sbyte[] vector, double[] mathWait)
         {
             var result = 0.0;
@@ -227,6 +269,9 @@ namespace Lab03_RBF
             return result;
         }
 
+        /// <summary>
+        /// Corrects the forward.
+        /// </summary>
         private void CorrectW()
         {
             for (var i = 0; i < m; i++)
@@ -238,19 +283,24 @@ namespace Lab03_RBF
             }
         }
 
+        /// <summary>
+        /// Gets all vectors.
+        /// </summary>
+        /// <returns></returns>
         private List<sbyte[]> GetAllVectors()
         {
-            var result = new List<sbyte[]>(m * h);
-            
-            result.Add(rbf.Vectors.VectorA1);
-            result.Add(rbf.Vectors.VectorA2);
-            result.Add(rbf.Vectors.VectorA3);
-            result.Add(rbf.Vectors.VectorB1);
-            result.Add(rbf.Vectors.VectorB2);
-            result.Add(rbf.Vectors.VectorB3);
-            result.Add(rbf.Vectors.VectorC1);
-            result.Add(rbf.Vectors.VectorC2);
-            result.Add(rbf.Vectors.VectorC3);
+            var result = new List<sbyte[]>(m * h)
+                             {
+                                 this.rbf.Vectors.VectorA1,
+                                 this.rbf.Vectors.VectorA2,
+                                 this.rbf.Vectors.VectorA3,
+                                 this.rbf.Vectors.VectorB1,
+                                 this.rbf.Vectors.VectorB2,
+                                 this.rbf.Vectors.VectorB3,
+                                 this.rbf.Vectors.VectorC1,
+                                 this.rbf.Vectors.VectorC2,
+                                 this.rbf.Vectors.VectorC3
+                             };
 
             return result;
         }
@@ -262,12 +312,16 @@ namespace Lab03_RBF
 
         #endregion
 
+        #region Public Methods
+
+        /// <summary>
+        /// Teaches this instance.
+        /// </summary>
         public void Teach()
         {
             this.InitializeRandomly(W, h, m);
 
             this.NumberOfIterations = 0;
-            double maxError;
             var teached = false;
 
             MathWait.Add(this.GetMathWait(rbf.Vectors.VectorA1, rbf.Vectors.VectorA2, rbf.Vectors.VectorA3));
@@ -276,21 +330,16 @@ namespace Lab03_RBF
 
             sko = this.GetSKO(MathWait[0], MathWait[1], MathWait[2]);
 
-            var vectors = new List<sbyte[]>(m * h);
-
-            vectors = this.GetAllVectors();
-
+            var vectors = this.GetAllVectors();
 
             while (!teached)
             {
                 this.NumberOfIterations++;
-                maxError = 0.0;
-
-                var error = 0.0;
+                var maxError = 0.0;
 
                 for (var i = 0; i < m * h; i++)
                 {
-                    error = this.TeachVector(vectors[i], sko, (byte) (i / 3));
+                    var error = this.TeachVector(vectors[i], (byte)(i / 3));
 
                     if (error > maxError)
                     {
@@ -302,7 +351,12 @@ namespace Lab03_RBF
             }
         }
 
-        public double[] Recognize(sbyte[] noiseVector) 
+        /// <summary>
+        /// Recognizes the specified noise vector.
+        /// </summary>
+        /// <param name="noiseVector">The noise vector.</param>
+        /// <returns></returns>
+        public double[] Recognize(sbyte[] noiseVector)
         {
             for (var i = 0; i < m; i++)
             {
@@ -329,6 +383,8 @@ namespace Lab03_RBF
             }
 
             return result;
-        }
+        } 
+
+        #endregion
     }
 }

@@ -121,6 +121,7 @@ namespace Lab03_RBF
 
             textBoxStatistics.Text += @"Network has been teached." + Environment.NewLine;
             textBoxStatistics.Text += @"Number of iterations: " + helper.NumberOfIterations + Environment.NewLine;
+            this.ScrollTextBox();
         }
 
         /// <summary>
