@@ -65,12 +65,12 @@ namespace Lab03_RBF
         /// <summary>
         /// The math wait
         /// </summary>
-        private List<double[]> MathWait;
+        private List<double[]> MathExpect;
 
         /// <summary>
-        /// The sko
+        /// The standard deviation
         /// </summary>
-        private double sko;
+        private double standardDeviation;
 
         #endregion
 
@@ -105,9 +105,9 @@ namespace Lab03_RBF
 
             this.W = this.GenerateMatrix(h, m);
             this.Y = new double[this.m];
-            
+
             this.D = new double[m];
-            MathWait = new List<double[]>(3);
+            this.MathExpect = new List<double[]>(3);
         }
 
         #endregion
@@ -178,26 +178,26 @@ namespace Lab03_RBF
         }
 
         /// <summary>
-        /// Gets the sko.
+        /// Gets standard deviation.
         /// </summary>
         /// <param name="pictureA">The picture aggregate.</param>
         /// <param name="pictureB">The picture attribute.</param>
         /// <param name="pictureC">The picture asynchronous.</param>
         /// <returns></returns>
-        private double GetSKO(double[] pictureA, double[] pictureB, double[] pictureC)
+        private double GetStandardDeviation(double[] pictureA, double[] pictureB, double[] pictureC)
         {
-            var sko1 = 0.0;
-            var sko2 = 0.0;
-            var sko3 = 0.0;
-            
+            var standardDeviation1 = 0.0;
+            var standardDeviation2 = 0.0;
+            var standardDeviation3 = 0.0;
+
             for (var i = 0; i < n; i++)
             {
-                sko1 += Math.Pow(pictureB[i] - pictureA[i], 2);
-                sko2 += Math.Pow(pictureC[i] - pictureA[i], 2);
-                sko3 += Math.Pow(pictureC[i] - pictureB[i], 2);
+                standardDeviation1 += Math.Pow(pictureB[i] - pictureA[i], 2);
+                standardDeviation2 += Math.Pow(pictureC[i] - pictureA[i], 2);
+                standardDeviation3 += Math.Pow(pictureC[i] - pictureB[i], 2);
             }
 
-            return Math.Min(Math.Min(sko1, sko2), sko3) / 2;
+            return Math.Min(Math.Min(standardDeviation1, standardDeviation2), standardDeviation3) / 2;
         }
 
         /// <summary>
@@ -212,7 +212,10 @@ namespace Lab03_RBF
 
             for (var i = 0; i < m; i++)
             {
-                G[i] = Math.Exp((-1) * (Evklid_number(vector, MathWait[i])) / Math.Pow(sko, 2));
+                G[i] =
+                    Math.Exp(
+                        (-1) * (this.EuclideanDistance(vector, this.MathExpect[i]))
+                        / Math.Pow(this.standardDeviation, 2));
             }
 
             for (var i = 0; i < m; i++)
@@ -252,12 +255,12 @@ namespace Lab03_RBF
         }
 
         /// <summary>
-        /// Evklid_numbers the specified vector.
+        /// Euclidean distance the specified vector.
         /// </summary>
         /// <param name="vector">The vector.</param>
         /// <param name="mathWait">The math wait.</param>
         /// <returns></returns>
-        private double Evklid_number(sbyte[] vector, double[] mathWait)
+        private double EuclideanDistance(sbyte[] vector, double[] mathWait)
         {
             var result = 0.0;
 
@@ -324,11 +327,14 @@ namespace Lab03_RBF
             this.NumberOfIterations = 0;
             var teached = false;
 
-            MathWait.Add(this.GetMathWait(rbf.Vectors.VectorA1, rbf.Vectors.VectorA2, rbf.Vectors.VectorA3));
-            MathWait.Add(this.GetMathWait(rbf.Vectors.VectorB1, rbf.Vectors.VectorB2, rbf.Vectors.VectorB3));
-            MathWait.Add(this.GetMathWait(rbf.Vectors.VectorC1, rbf.Vectors.VectorC2, rbf.Vectors.VectorC3));
+            this.MathExpect.Add(this.GetMathWait(rbf.Vectors.VectorA1, rbf.Vectors.VectorA2, rbf.Vectors.VectorA3));
+            this.MathExpect.Add(this.GetMathWait(rbf.Vectors.VectorB1, rbf.Vectors.VectorB2, rbf.Vectors.VectorB3));
+            this.MathExpect.Add(this.GetMathWait(rbf.Vectors.VectorC1, rbf.Vectors.VectorC2, rbf.Vectors.VectorC3));
 
-            sko = this.GetSKO(MathWait[0], MathWait[1], MathWait[2]);
+            this.standardDeviation = this.GetStandardDeviation(
+                this.MathExpect[0],
+                this.MathExpect[1],
+                this.MathExpect[2]);
 
             var vectors = this.GetAllVectors();
 
@@ -360,7 +366,10 @@ namespace Lab03_RBF
         {
             for (var i = 0; i < m; i++)
             {
-                G[i] = Math.Exp((-1) * (Evklid_number(noiseVector, MathWait[i])) / Math.Pow(sko, 2));
+                G[i] =
+                    Math.Exp(
+                        (-1) * (this.EuclideanDistance(noiseVector, this.MathExpect[i]))
+                        / Math.Pow(this.standardDeviation, 2));
             }
 
             for (int i = 0; i < m; i++)
@@ -383,7 +392,7 @@ namespace Lab03_RBF
             }
 
             return result;
-        } 
+        }
 
         #endregion
     }
